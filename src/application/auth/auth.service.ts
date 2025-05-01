@@ -4,6 +4,7 @@ import { RegisterReq } from '../../shared/dto/auth/register.req';
 import { LoginReq } from '../../shared/dto/auth/login.req';
 import { AppError } from '../../shared/errors/app-error';
 import bcrypt from 'bcrypt';
+import { UserRole } from '../../shared/enums/user-role.enum';
 
 export class AuthService {
   private userRepository = new UserRepository();
@@ -18,7 +19,7 @@ export class AuthService {
       name: data.name,
       email: data.email,
       password: hashedPassword,
-      role: data.role
+      role: UserRole.USER
     });
 
     const token = generateToken({ id: user.id, role: user.role });
