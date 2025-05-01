@@ -10,7 +10,7 @@ export class BaseRepository<TModel> {
     return (this.prisma[this.modelName] as any).findMany();
   }
 
-  getById(id: number): Promise<TModel | null> {
+  getById(id: String): Promise<TModel | null> {
     return (this.prisma[this.modelName] as any).findUnique({ where: { id } });
   }
 
@@ -18,11 +18,11 @@ export class BaseRepository<TModel> {
     return (this.prisma[this.modelName] as any).create({ data });
   }
 
-  update(id: number, data: Partial<TModel>): Promise<TModel> {
+  update(id: String, data: Partial<TModel>): Promise<TModel> {
     return (this.prisma[this.modelName] as any).update({ where: { id }, data });
   }
 
-  delete(id: number): Promise<void> {
+  delete(id: String): Promise<void> {
     return (this.prisma[this.modelName] as any).delete({ where: { id } });
   }
 }

@@ -2,14 +2,13 @@ import { UserRepository } from '../../infrastructure/database/user.repository';
 import { generateToken } from '../../shared/utils/jwt.util';
 import { RegisterReq } from '../../shared/dto/auth/register.req';
 import { LoginReq } from '../../shared/dto/auth/login.req';
-import { User } from '../../domain/user/entities/user.entity';
 import { AppError } from '../../shared/errors/app-error';
 import bcrypt from 'bcrypt';
 
 export class AuthService {
   private userRepository = new UserRepository();
 
-  async register(data: RegisterReq): Promise<{ user: User; token: string }> {
+  async register(data: RegisterReq): Promise<{ token: string }> {
     const existing = await this.userRepository.findByEmail(data.email);
     if (existing) throw new AppError('Email already in use', 409);
 
@@ -23,10 +22,10 @@ export class AuthService {
     });
 
     const token = generateToken({ id: user.id, role: user.role });
-    return { user, token };
+    return { token };
   }
 
-  async login(data: LoginReq): Promise<{ user: User; token: string }> {
+  async login(data: LoginReq): Promise<{ token: string }> {
     const user = await this.userRepository.findByEmail(data.email);
     if (!user) throw new AppError('Email or password is invalid', 401);
 
@@ -34,6 +33,6 @@ export class AuthService {
     if (!isValid || !user) throw new AppError('Email or password is invalid', 401);
 
     const token = generateToken({ id: user.id, role: user.role });
-    return { user, token };
+    return { token };
   }
 }
