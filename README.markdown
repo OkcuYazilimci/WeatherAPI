@@ -186,6 +186,8 @@ The project follows **Clean Architecture (Onion Architecture)** for modularity a
 ### Authentication
 - **`POST /auth/login`**: Log in with credentials to receive a JWT token.
 - **`POST /auth/register`**:  A user can register themselves, but they cannot choose a role; they will be registered with the default role of "User".
+  
+**If you want to be an Admin, you must manually update your role to "Admin" in the database. This feature is not implemented as there was no request for it, but it can be developed in the future.**
 
 ### User Routes
 - **`GET /user`**: List all users (Admin only).
