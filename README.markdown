@@ -241,4 +241,4 @@ If you have any questions or need assistance, feel free to reach out!
 
 ---
 
-*Built with 💻 and ☕ by [Your Name]*
+*Built with 💻 and ☕ by [Umut Uygun]*
