@@ -1,5 +1,5 @@
 import { UserRepository } from '../../infrastructure/database/user.repository';
-import { User } from '../../domain/user/entities/user.entity';
+import { User } from '../../domain/entities/user.entity';
 import { AppError } from '../../shared/errors/app-error';
 
 export class UserService {

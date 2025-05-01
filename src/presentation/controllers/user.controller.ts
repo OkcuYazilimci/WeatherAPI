@@ -43,7 +43,7 @@ export const deleteUser = async (req: Request, res: Response, next: NextFunction
 
 export const getMyStatus = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const userId = req.user.id; // JWT middleware'den gelmeli
+    const userId = req.user.id;
     const user = await userService.getMyStatus(userId);
     res.json(user);
   } catch (err) {

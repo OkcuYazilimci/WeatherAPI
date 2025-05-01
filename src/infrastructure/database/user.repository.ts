@@ -1,6 +1,6 @@
 import { prisma } from './prisma-client';
-import { User } from '../../domain/user/entities/user.entity';
-import { IUserRepository } from '../../domain/user/repositories/user-repository.interface';
+import { User } from '../../domain/entities/user.entity';
+import { IUserRepository } from '../../domain/repositories/user-repository.interface';
 import { BaseRepository } from './base.repository';
 import { UserRole } from '../../shared/enums/user-role.enum';
 
