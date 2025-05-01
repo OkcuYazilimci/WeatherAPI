@@ -99,7 +99,7 @@ npx prisma migrate dev --name init
 Start the server:
 
 ```bash
-npm run start
+npm run dev
 ```
 
 The server will run on `http://localhost:3000`.
