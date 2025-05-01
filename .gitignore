@@ -1,0 +1,19 @@
+# Node.js
+node_modules/
+dist/
+.env
+
+# Prisma
+prisma/dev.db
+prisma/migrations/
+
+# IDE / OS
+.vscode/
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Runtime
+*.tsbuildinfo
