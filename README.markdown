@@ -67,10 +67,22 @@ npm install
 Create a `.env` file in the project root and add the following:
 
 ```env
-OPENWEATHER_API_KEY=your_openweather_api_key
-DATABASE_URL=postgresql://username:password@localhost:5432/weatherdb
-REDIS_URL=redis://localhost:6379
+DATABASE_URL="postgresql://postgres:123456@localhost:5433/weatherdb?schema=public"
+
+REDIS_HOST=localhost
+REDIS_PORT=6379
+
+JWT_SECRET="9dJQxF2GZQ5Z6xOqG5OlDCN5mDOV+0z5vsh7Ngr+0FbEBHGzFPluow8o2gSvu1Et2VWtHgl1YvC6dvF4M0cEqQ=="
+
+OPENWEATHER_API_KEY="ef19074404acf382206aa958f4569"
+
+JWT_ISSUER=weather-api
+JWT_AUDIENCE=weather-client
+
+NODE_ENV=development
+PORT=3000
 ```
+**These are just example .env credentials to demonstrate proper variable naming conventions. In a real-world scenario, make sure to keep sensitive data, such as database passwords and JWT secrets, secure and avoid exposing them in version control systems. Always use environment variables to configure your application securely across different environments (e.g., development, production).**
 
 Replace `your_openweather_api_key`, `username`, and `password` with your actual credentials.
 
