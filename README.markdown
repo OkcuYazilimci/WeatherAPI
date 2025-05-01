@@ -149,6 +149,7 @@ model User {
   createdAt DateTime    @default(now())
   updatedAt DateTime    @updatedAt
   weatherQueries WeatherQuery[]
+  @@index([id])
 }
 
 model WeatherQuery {
@@ -184,13 +185,14 @@ The project follows **Clean Architecture (Onion Architecture)** for modularity a
 
 ### Authentication
 - **`POST /auth/login`**: Log in with credentials to receive a JWT token.
+- **`POST /auth/register`**:  A user can register themselves, but they cannot choose a role; they will be registered with the default role of "User".
 
 ### User Routes
-- **`GET /users`**: List all users (Admin only).
-- **`POST /users`**: Create a new user (Admin only).
-- **`PUT /users/:id`**: Update user details (Admin only).
-- **`DELETE /users/:id`**: Delete a user (Admin only).
-- **`GET /users/me`**: Get details of the logged-in user.
+- **`GET /user`**: List all users (Admin only).
+- **`POST /user`**: Create a new user (Admin only).
+- **`PUT /user/:id`**: Update user details (Admin only).
+- **`DELETE /user/:id`**: Delete a user (Admin only).
+- **`GET /user/me`**: Get details of the logged-in user.
 
 ### Weather Routes
 - **`GET /weather`**: Fetch weather data by city (checks Redis cache first).
@@ -214,10 +216,9 @@ The project follows **Clean Architecture (Onion Architecture)** for modularity a
 
 ---
 
-## 🚨 Error Handling & Logging
+## 🚨 Error Handling
 
 - **Error Handling**: Custom error messages with appropriate HTTP status codes.
-- **Logging**: Detailed console logs for each request, including errors and query execution times.
 
 ---
 
@@ -226,31 +227,11 @@ The project follows **Clean Architecture (Onion Architecture)** for modularity a
 - **Indexes**: On `userId` and `city` in the `WeatherQuery` table for faster lookups.
 - **Normalization**: Schema designed to avoid data redundancy and ensure scalability.
 
----
-
-## 🧪 Testing & CI/CD
-
-- **Unit Tests**: Written with Jest for services and controllers.
-- **CI/CD Pipeline**: Configured for automated testing and deployment (optional).
-
----
-
 ## 📚 Documentation
 
 - **API Documentation**: Available via Postman or Swagger.
 - **Codebase**: Well-commented for maintainability.
 
----
-
-## 🚀 Scalability & Future Enhancements
-
-The project is designed for scalability. Potential enhancements include:
-- Adding new user roles.
-- Supporting additional weather APIs.
-- Implementing advanced caching strategies.
-- Scaling infrastructure with load balancers and microservices.
-
----
 
 ## ❓ Questions?
 
