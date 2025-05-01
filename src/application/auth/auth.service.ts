@@ -1,5 +1,5 @@
 import { UserRepository } from '../../infrastructure/database/user.repository';
-import { generateToken } from '../../shared/utils/jwt.utils';
+import { generateToken } from '../../shared/utils/jwt.util';
 import { RegisterReq } from '../../shared/dto/auth/register.req';
 import { LoginReq } from '../../shared/dto/auth/login.req';
 import { User } from '../../domain/user/entities/user.entity';
