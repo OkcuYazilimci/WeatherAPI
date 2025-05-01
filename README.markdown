@@ -1,6 +1,6 @@
 # Weather API
 
-A robust backend project built for the Software Engineer Case Study. This API fetches weather data using the [OpenWeather API](https://openweathermap.org/) and implements a caching mechanism with Redis. It features role-based access control (RBAC) with two roles:
+This API fetches weather data using the [OpenWeather API](https://openweathermap.org/) and implements a caching mechanism with Redis. It features role-based access control (RBAC) with two roles:
 
 - **Admin**: Can manage users and view all weather queries.
 - **User**: Can only view their own weather queries.
